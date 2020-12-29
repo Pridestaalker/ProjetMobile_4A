@@ -1,5 +1,6 @@
 package com.example.projet4a.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 is LoginSuccess -> {
                     //TODO Navigate
                 }
-                LoginError -> {
+                /*LoginError -> {
                     MaterialAlertDialogBuilder(this)
                             .setTitle("Erreur")
                             .setMessage("Compte inconnu")
@@ -31,11 +32,13 @@ class MainActivity : AppCompatActivity() {
                             }
                             .show()
 
-                }
+                }*/
             }
         })
         login_button.setOnClickListener {
             mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 }
